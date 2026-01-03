@@ -19,7 +19,7 @@
     h2 { margin:44px 0 14px; font-size:22px; }
     .pub { display:grid; grid-template-columns: 220px 1fr; gap:16px; padding:14px; border-radius:18px; background:var(--card); margin:12px 0; }
     .media { width:220px; border-radius:14px; overflow:hidden; background:#ddd; }
-    .media img, .media video { width:100%; height:100%; object-fit:cover; display:block; }
+    .media img, .media video { width:100%; height:100%; object-fit:contain; display:block; background:#fff;}
     .title { font-weight:650; margin-bottom:4px; }
     .venue { color:var(--muted); font-size:14px; margin-bottom:8px; }
     .btns a { display:inline-block; margin-right:10px; font-size:14px; }
@@ -27,98 +27,146 @@
       .top { grid-template-columns: 1fr; }
       img.pfp { width:110px; height:110px; }
       .pub { grid-template-columns: 1fr; }
-      .media { width:100%; }
+      .media { width:100%; height:200px; }
       .media img, .media video { height:180px; }
     }
   </style>
 </head>
-<body>
+
+
+<body>  
   <div class="wrap">
-    <section class="top">
+    <section id="intro">  
       <img class="pfp" src="assests/profile.JPG" alt="Profile photo">
       <div>
         <h1>Valérie Zermatten</h1>
-        <div class="muted">PhD Candidate in Earth Observation and Machine Learning· ECEO,EPFL · Sion, Switzerland</div>
+        <div class="muted">PhD Candidate in Earth Observation and Machine Learning · ECEO, EPFL · Sion, Switzerland</div>
         <p>
-          I'm a PhD Candidate working at the intersection of Remote Sensing, Machine Learning and Ecology. 
-          My main focus during my PhD is on integrating knowledge from text to better understand remote sensing images.
-
-          I'm supervised by <a href="https://scholar.google.com/citations?user=p3iJiLIAAAAJ&hl=fr">Prof. Devis Tuia</a> and 
-          <a href="https://scholar.google.com/citations?user=IUqydU0AAAAJ&hl=en&oi=ao">Prof. Diego Marcos </a>.
+          I'm a PhD Candidate working at the intersection of Remote Sensing, Machine Learning and Ecology. I combine  both computer vision  and natural language processing to integrate multiple sources (e.g., species observations, satellite images, text or and environmental rasters).
+          My main focus during my PhD is on integrating knowledge from text to better understand remote sensing images.   Specifically, I introduced knowledge from species habitat descriptions in Wikipedia to better map their ecosystems and various related concepts.
+          In general my goal is to use recent breakthroughs in AI to try to address the environmental challenges our planete is facing. 
         </p>  
         <p>
-          Previously, I obtain my Bachelor and Master degree at EPFL in the faculty of Environmental Science and Engineering.
+          I'm supervised by <a href="https://scholar.google.com/citations?user=p3iJiLIAAAAJ&hl=fr">Prof. Devis Tuia</a>, head of the  <a href="https://www.epfl.ch/labs/eceo/">Environmental Computational Science and Earth Observation Laboratory </a> (ECEO) at EPFL, Sion (Switzerland), and     <a href="https://scholar.google.com/citations?user=IUqydU0AAAAJ&hl=en&oi=ao">Prof. Diego Marcos </a>, Junior Professor in the <a href="https://team.inria.fr/evergreen/">Evergreen team</a> at INRIA, Montpellier (France). I also collaborate with the <a href="https://www.swisstopo.admin.ch/en">Federal Office of Topography swisstopo</a>, to develop interactive methods for mapping Switzerland at scale.  Previously, I obtained my Bachelor and Master degree at EPFL in the faculty of Environmental Science and Engineering.
         </p>
         <div class="links">
           <a href="https://scholar.google.com/citations?user=vrVSx-AAAAAJ&hl=en&oi=ao">Scholar</a>
           <a href="https://www.linkedin.com/in/val%C3%A9rie-zermatten-328540201/">LinkedIn</a>
           <a href="https://github.com/zvalerie">GitHub</a>
-          <a href="mailto:you@domain.com">firstname.lastname@epfl.ch</a>
+          <a href="https://people.epfl.ch/valerie.zermatten?lang=en">EPFL</a>
         </div>
       </div>
     </section>
-
-    <h2>Research</h2>
-
-    <article class="pub">
-      <div class="media">
-        <img src="projects\ecowikirs\ecowikirs.jpg" alt="Teaser image">
-      </div>
-      <div>
-        <div class="title">EcoWikiRS: Learning Ecological Representations of Satellite Images from Weak Supervision with Species Observations and Wikipedia</div>
-        <div class="venue">V. Zermatten, J. Castillo-Navarro, P. Jain, D. Tuia, D. Marcos · CVPR EarthVision Workshop, 2025</div>
-        <div class="muted">We propose a method to learn ecological properties of aerial images by learning an alignment with species habitat descriptions in Wikipedia. For this task, we build the EcoWikiRS dataset,  consisting of high-resolution aerial images, geolocated species observations from GBIF, and, for each species, the textual descriptions of their habitat from Wikipedia. We evaluate our model on the task of ecosystem zero-shot classification by following the habitat definitions from the European Nature Information System (EUNIS). </div>
-        <div class="btns" style="margin-top:10px;">
-          <a href="https://github.com/eceo-epfl/EcoWikiRS">Project Page & Repo</a>
-          <a href="https://openaccess.thecvf.com/content/CVPR2025W/EarthVision/papers/Zermatten_EcoWikiRS_Learning_Ecological_Representation_of_Satellite_Images_from_Weak_Supervision_CVPRW_2025_paper.pdf">pdf</a>
-          <a href="https://zenodo.org/records/15236742">Dataset</a>
-          
+    <section id="research">  <h2>Research</h2>
+      <article class="pub">
+        <div class="media">
+          <img src="projects/ecowikirs/ecowikirs.jpg" alt="ecowikirs image">
         </div>
+        <div>
+          <div class="title">
+            EcoWikiRS: Learning Ecological Representations of Satellite Images from Weak Supervision with Species Observations and Wikipedia
+          </div>
+          <div class="venue">
+            V. Zermatten, J. Castillo-Navarro, P. Jain, D. Tuia, D. Marcos · CVPR EarthVision Workshop, 2025
+          </div>
+          <div class="muted">
+            We propose a method to learn ecological properties of aerial images by learning an alignment with species habitat descriptions from Wikipedia. Such supervision improves the recognition of ecosytems, and can be used to map natural concepts at scale.
+          </div>
+          <div class="btns" style="margin-top:10px;">
+            <a href="https://github.com/eceo-epfl/EcoWikiRS">Project Page & Repo</a>
+            <a href="https://openaccess.thecvf.com/content/CVPR2025W/EarthVision/papers/Zermatten_EcoWikiRS_Learning_Ecological_Representation_of_Satellite_Images_from_Weak_Supervision_CVPRW_2025_paper.pdf">PDF</a>
+            <a href="https://zenodo.org/records/15236742">Dataset</a>
+          </div>
+        </div>
+      <h4>EcoWikiRS in 5 min:</h4>
+      <div style="max-width:60%;margin:5px auto 5px;">
+        <div style="position:relative;padding-top:50%;">
+          <iframe
+            src="https://www.youtube.com/embed/OsmtpW1PlNM"
+            style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <p>Big thanks to  Grace W. Lindsay from New York University for making the video.</p>
       </div>
-    </article>
+      </article>
+
 
     <article class="pub">
       <div class="media">
-        <img src="projects\tacoss\tacoss.png" alt="Teaser image">
+      <img src="projects\tacoss\tacoss.png" alt="tacoss image">
       </div>
       <div>
         <div class="title">Learning transferable land cover semantics for open vocabulary interactions with remote sensing images</div>
         <div class="venue">V. Zermatten, J. Castillo-Navarro, D. Marcos, D. Tuia · ISPRS Journal of Photogrammetry and Remote Sensing, 2025</div>
-        <div class="muted"> In this work, we propose to use Text As supervision for COntrastive Semantic Segmentation (TACOSS) : We design an open vocabulary semantic segmentation model that extends its capacities beyond that of a traditional model for land cover mapping: In addition to visual pattern recognition, TACOSS leverages the common sense knowledge captured by language models and is capable of interpreting the image at the pixel level, attributing semantics to each pixel and removing the constraints of a fixed set of land cover labels.</div>
+        <div class="muted"> We introduce TACOSS, a model for land cover mapping from text: TACOSS leverages the common sense knowledge captured by language models and is capable mapping any land cover based on a textual description, beyond the set of land cover labels seen at training time.</div>
         <div class="btns" style="margin-top:10px;">
           <a href="https://github.com/eceo-epfl/RS-OVSS">Project Page & Repo</a>
-          <a href="https://www.sciencedirect.com/science/article/pii/S0924271625000061">pdf</a>
-      </div>
+          <a href="https://www.sciencedirect.com/science/article/pii/S0924271625000061">PDF</a>
+        </div>
       </div>
       </article>
-      article class="pub">
-      <div class="media">
-        <img src="projects/my-paper-2/teaser.jpg" alt="Teaser image">
-      </div>
-      <div>
-        <div class="title">Prompt–RSVQA: Prompting visual context to a language model for Remote Sensing Visual Question Answering</div>
-        <div class="venue">Venue, Year · Authors</div>
-        <div class="muted">Short description.</div>
-        <div class="btns" style="margin-top:10px;">
-          <a href="https://openaccess.thecvf.com/content/CVPR2022W/EarthVision/papers/Chappuis_Prompt-RSVQA_Prompting_Visual_Context_to_a_Language_Model_for_Remote_CVPRW_2022_paper.pdf">pdf</a>
-        </div>
-      </div>
-    </article>
-        <article class="pub">
-      <div class="media">
-        <img src="projects/my-paper-2/teaser.jpg" alt="Teaser image">
-      </div>
-      <div>
-        <div class="title">MCE</div>
-        <div class="venue">Venue, Year · Authors</div>
-        <div class="muted">Short description.</div>
-        <div class="btns" style="margin-top:10px;">
-          <a href="projects/my-paper-2/">Project Page</a>
-          <a href="#">Paper</a>
-        </div>
-      </div>
-    </article>
 
+      <article class="pub">
+        <div class="media">
+          <img src="projects\prompt_rsvqa\prompt_rsvqa.jpg" alt="pronpt-rsvqa image">
+        </div>
+        <div>
+          <div class="title">Prompt–RSVQA: Prompting visual context to a language model for Remote Sensing Visual Question Answering</div>
+          <div class="venue">C. Chappuis, V. Zermatten, S. Lobry, B. Le Saux, D. Tuia · CVPR EarthVision Workshop, 2022</div>
+          <div class="muted">We introduce a new approach for remote sensing visual question answering (RS-VQA), i.e. given a remote sensing image and a question about it, the VQA task consists in predicting a text answer. We propose to convert the visual information to text, i.e. a prompt, before injecting it into a language model to obtain an answer.</div>
+          <div class="btns" style="margin-top:10px;">
+            <a href="https://openaccess.thecvf.com/content/CVPR2022W/EarthVision/papers/Chappuis_Prompt-RSVQA_Prompting_Visual_Context_to_a_Language_Model_for_Remote_CVPRW_2022_paper.pdf">PDF</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="pub">
+        <div class="media">
+          <img src="projects\mce\mce.png" alt="mce image">
+        </div>
+        <div>
+          <div class="title">Land Cover Mapping From Multiple Complementary Experts Under Heavy Class Imbalance</div>
+          <div class="venue">V. Zermatten, X. Lu,  J. Castillo-Navarro, T. Kellenberger, D. Tuia · IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing, 2024</div>
+          <div class="muted">We introduce a Multiple Complementary Experts (MCE) model to improve predictions of rare classes in semantic segmentation. We apply this approach to land cover mapping in alpine regions. </div>
+          <div class="btns" style="margin-top:10px;">
+            <a href="https://ieeexplore.ieee.org/abstract/document/10444917">PDF</a>
+          </div>
+        </div>
+      </article>
+
+  
+  </section>
+  <section id="talks">
+  <h2>Various Talks & Presentations</h2> <ul style="list-style:none;paddin March 13, 2025.ing:0;margin:0;">
+            <li > December 11th, 2025 : Panelist at the online event « AI for conservation»  from  WILDLABS</li>
+            <li > September 26th, 2025 : Panelist at the Swiss {ai} Weeks  for the  online event «AI for Space - Lifting Off with AI: From Earth to Space»</li>
+            <li >August 25th, 2025 : Presentation of EcoWikiRS at the Swiss Remote Sensing Days in Dübendorf, Switzerland</li>
+            <li >June 26th 2025 : Presentation of EcoWikiRS at the Living Planete Symposium, organised by the European Spatial Agency, in Vienna, Austria</li>     
+            <li > June 11th, 2025 :	Lightning talk to introduce EcoWikiRS and poster at the Earthvision Workshop of the Computer Vision and Pattern Recognition Conference (CVPR) in Nashville, USA.</li>
+            <li > May 21th, 2025 : 	Online presentation of EcoWikiRS for the Wiki Workshop 2025 </li>
+            <li > March 13, 2025 :	Presentation of EcoWikiRS at the « AI-Imagery Workshop » in Le Grand Bornand, France</li>
+            <li > February 27th, 2025 :	Presentation of TACOSS at Maison de la Télédetection in Montpellier, France</li>
+            <li > September 26th, 2024 :	Presentation at INRIA, Montpellier, France</li>
+            <li > September 2024 - March 2025 :	Academic visit in the EVERGREEN team at Maison de la Télédetection and Institut national de recherche en sciences et technologies du numérique (INRIA), in Montpellier, France.</li>
+            <li > July 2024 : Tutorial on Vision-Language Models for remote sensing at the conference International Geoscience and Remote Sensing Symposium  (IGARSS) in Athens, Greece </li>
+            <li > April 18th, 2024 : Presentation at the European Geoscience Union (EGU) in the session "Large-scale mapping of environmental variables by combining ground observations, remote sensing, and machine learning," in Vienna,Austria </li>
+            <li > March 2024 : Presentation on “Deep learning for land cover mapping in alpine regions” at the swisstopo Kolloquim Geodaten und KI, Wabern, Switzerland </li>
+            <li > March 2024 : Presentation and panel discussion at the Applied Machine Learning Days (AMLD) in the "AI from the Sky"  session, Lausanne, Switzerland  </li>
+
+            <li > </li>
+            <li > </li>
+
+
+          </ul> 
+  <!-- put EcoWikiRS video + future talks list here -->
+  </section>
+
+  <section id="hobbies">
+    <h2>Hobbies</h2>
+    <p>...</p>
+  </section>
   </div>
 </body>
 </html>
